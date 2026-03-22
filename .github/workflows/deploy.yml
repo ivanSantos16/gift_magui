@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # Or "master" depending on your branch name
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -21,21 +21,18 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: gift_magui/package-lock.json
+          cache-dependency-path: package-lock.json # Removed prefix
 
       - name: Install dependencies
-        run: npm install
-        working-directory: gift_magui
+        run: npm install # Removed working-directory
 
       - name: Build
-        run: npm run build
-        working-directory: gift_magui
+        run: npm run build # Removed working-directory
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          # this should point to your dist folder
-          path: gift_magui/dist/
+          path: dist/ # Removed prefix
 
   deploy:
     needs: build_site
