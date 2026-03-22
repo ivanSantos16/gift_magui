@@ -27,7 +27,7 @@ const PostcardPage = memo(function PostcardPage() {
   // Download voucher
   const handleDownload = useCallback(() => {
     const a = document.createElement('a')
-    a.href = 'public/voucher.png'
+    a.href = `${import.meta.env.BASE_URL}voucher.png`
     a.download = 'voucher.png'
     a.click()
   }, [])
