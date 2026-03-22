@@ -13,7 +13,7 @@ import PostcardPage from './pages/PostcardPage'
  */
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/gift_magui">
       <QuizProvider>
         <Layout>
           <Routes>
